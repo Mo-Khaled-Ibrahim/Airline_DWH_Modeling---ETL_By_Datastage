@@ -116,7 +116,7 @@ job
 </p>
 
 <p align="center">
-  <img src="pics/cdc_conf.webp" alt="Image Description" width="900">
+  <img src="pics/cdc_conf.webp" alt="Image Description" width="500">
 </p>
 
 Transform Stage
