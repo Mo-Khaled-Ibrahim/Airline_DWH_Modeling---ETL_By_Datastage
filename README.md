@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="pics/Logo.png" alt="Image Description">
+  <img src="pics/Logo.png" alt="Image Description" width="600">
 </p>
 # Airline DWH Modeling + ETL By Datastage
 
