@@ -95,7 +95,7 @@ Full star schema , covering all identified business processes (Flight Reservatio
 
 ### 4. Data Marts (Designed)
 
-Two subject-specific data marts were designed on top of the star schema — Revenue & Profitability, and Loyalty & Marketing — as downstream aggregation layers. _Not built in this phase; see [Steps](#Next Steps)._
+Two subject-specific data marts were designed on top of the star schema — Revenue & Reservation, and Loyalty & Marketing — as downstream aggregation layers. _Not built in this phase; see [Steps](#Next Steps)._
 
 <p align="center">
   <img src="pics/EDIT_main_modeling_w_marts.png" alt="Image Description" width="900">
