@@ -124,17 +124,16 @@ Transform Stage
   <img src="pics/stg_trans.webp" alt="Image Description" width="900">
 </p>
 
-test update and insert new data
-<p align="center">
-  <img src="pics/cdc_oltp_test.webp" alt="Image Description" width="900">
-</p>
-
 result
 <p align="center">
   <img src="pics/oltp_stg_data.webp" alt="Image Description" width="900">
 </p>
 
-test
+test update and insert new data
+<p align="center">
+  <img src="pics/cdc_oltp_test.webp" alt="Image Description" width="900">
+</p>
+
 <p align="center">
   <img src="pics/stg_data_test.webp" alt="Image Description" width="900">
 </p>
