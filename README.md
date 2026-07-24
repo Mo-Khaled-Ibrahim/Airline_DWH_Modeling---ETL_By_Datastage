@@ -62,31 +62,40 @@ Based on a case study for an airline's marketing and finance teams, requiring an
 
 Initial breakdown of business processes, source tables, and target design approach.
 
-/pics/**[plan.png]**
+<p align="center">
+  <img src="pics/plan.png" alt="Image Description" width="900">
+</p>
+
 
 ### 2. Source Data Overview
 
 Review of source structure across Oracle OLTP tables and CSV feeds (promotions, loyalty transactions, customer interactions, upgrades, overnight stays).
 
 OLTP
-`/pics/` → **[OLTP.webp]**
+<p align="center">
+  <img src="pics/OLTP.webp" alt="Image Description" width="900">
+</p>
 
 CSV
-`/pics/` → **[CSV.webp]**
+<p align="center">
+  <img src="pics/CSV.webp" alt="Image Description" width="900">
+</p>
 
 ### 3. Data Warehouse Model
 
 Full star schema , covering all identified business processes (Flight Reservation & Revenue, Loyalty & Marketing, Customer Care). This build focuses on implementing the **Flight Reservation & Revenue** process end-to-end.
 
-`/pics/` → **[EDIT_main_modeling.png]**
-
-`/pics/` → **[Flight_fact.png]**
+<p align="center">
+  <img src="pics/EDIT_main_modeling.png" alt="Image Description" width="900">
+</p>
 
 ### 4. Data Marts (Designed)
 
 Two subject-specific data marts were designed on top of the star schema — Revenue & Profitability, and Loyalty & Marketing — as downstream aggregation layers. _Not built in this phase; see [Steps](#Next Steps)._
 
-`/pics/` → **[EDIT_main_modeling_w_marts.png]**
+<p align="center">
+  <img src="pics/EDIT_main_modeling_w_marts.png" alt="Image Description" width="900">
+</p>
 
 ### 5. Staging Layer — CDC Extraction (CSV + OLTP)
 
@@ -98,23 +107,43 @@ DataStage jobs extract from both Oracle source tables and CSV files into staging
 #### OLTP
 
 job
-`/pics/` → **[cdc_oltp.webp]**
-`/pics/` → **[cdc_conf.webp]**
+<p align="center">
+  <img src="pics/cdc_oltp.webp" alt="Image Description" width="900">
+</p>
+
+<p align="center">
+  <img src="pics/cdc_conf.webp" alt="Image Description" width="900">
+</p>
 
 Transform Stage
-`/pics/` → **[stg_trans.webp]**
+<p align="center">
+  <img src="pics/stg_trans.webp" alt="Image Description" width="900">
+</p>
 
 test update and insert new data
-`/pics/` → **[cdc_oltp_test.webp]**
+<p align="center">
+  <img src="pics/cdc_oltp_test.webp" alt="Image Description" width="900">
+</p>
 
 result
-`/pics/` → **[oltp_stg_data.webp]**
-`/pics/` → **[stg_data_test.webp]**
+<p align="center">
+  <img src="pics/oltp_stg_data.webp" alt="Image Description" width="900">
+</p>
+
+test
+<p align="center">
+  <img src="pics/stg_data_test.webp" alt="Image Description" width="900">
+</p>
 
 #### CSV
 
-`/pics/` → **[cdc_csv.webp]**
-`/pics/` → **[csv_stg_data.webp]**
+<p align="center">
+  <img src="pics/cdc_csv.webp" alt="Image Description" width="900">
+</p>
+
+<p align="center">
+  <img src="pics/csv_stg_data.webp" alt="Image Description" width="900">
+</p>
 
 #### OLAP
 
@@ -124,9 +153,17 @@ result
 
 DataStage jobs load 4 dimensions — **Date, Passenger, Aircraft, Flight** — as **Slowly Changing Dimension Type 1** (lookup + overwrite, no historical tracking). Surrogate keys generated via Oracle sequences and with key generator stage
 
-`/pics/` → **[dim_job.webp]**
-`/pics/` → **[dim_sk_trans.webp]**
-`/pics/` → **[dim_data.webp]**
+<p align="center">
+  <img src="pics/dim_job.webp" alt="Image Description" width="900">
+</p>
+
+<p align="center">
+  <img src="pics/dim_sk_trans.webp" alt="Image Description" width="900">
+</p>
+
+<p align="center">
+  <img src="pics/dim_data.webp" alt="Image Description" width="900">
+</p>
 
 ### 7. Fact Table Load
 
@@ -134,9 +171,13 @@ job `fact_flight_reserve`
 
 `FLIGHT_RESERVATION_FACT` populated via a chain of Lookup stages (Passenger, Aircraft, Flight, Date) resolving surrogate keys, followed by a Transformer stage performing all business calculations (`FLIGHT_PROFIT`, `DELAY_MINUTES`, `IS_DELAYED_FLAG`), then loaded into the target table. `FACT_KEY` is auto-generated via an Oracle sequence at insert.
 
-`/pics/` → **[fact_job.png]**
-`/pics/` → **[Fact_lookup.webp]**
+<p align="center">
+  <img src="pics/fact_job.png" alt="Image Description" width="900">
+</p>
 
+<p align="center">
+  <img src="pics/Fact_lookup.webp" alt="Image Description" width="900">
+</p>
 ---
 
 ## Status
