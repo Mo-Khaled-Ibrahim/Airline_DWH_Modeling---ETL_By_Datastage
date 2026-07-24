@@ -5,7 +5,7 @@
 
 # Airline DWH Modeling + ETL By Datastage
 
-A dimensional data warehouse design and ETL implementation for an airline analytics case study, built using Oracle and IBM DataStage.
+Dimensional data warehouse design and ETL implementation for an airline analysis simulation, built using Oracle and IBM DataStage.
 
 **Status:** dimensional model fully designed; ETL implemented and demonstrated for a focused subset (4 dimensions + 1 fact table). See [Status](#status) below.
 
