@@ -198,6 +198,8 @@ fact rows only store surrogate keys — resolving those keys via Lookup stages b
   <img src="pics/fact_job.png" alt="Image Description" width="900">
 </p>
 
+lookup
+
 <p align="center">
   <img src="pics/Fact_lookup.webp" alt="Image Description" width="900">
 </p>
