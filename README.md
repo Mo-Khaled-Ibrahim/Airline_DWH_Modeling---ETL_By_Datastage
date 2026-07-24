@@ -1,5 +1,5 @@
 
-[Logo.png]
+/pics/[Logo.png]
 
 # Airline DWH Modeling + ETL By Datastage
 
@@ -60,7 +60,7 @@ Based on a case study for an airline's marketing and finance teams, requiring an
 
 Initial breakdown of business processes, source tables, and target design approach.
 
-`/pics/` → **[plan.png]**
+/pics/**[plan.png]**
 
 ### 2. Source Data Overview
 
