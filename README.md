@@ -105,7 +105,7 @@ Two subject-specific data marts were designed on top of the star schema — Reve
 
 job `STG_Airline_*` (job per table)
 
-DataStage jobs extract from both Oracle source tables and CSV files into staging, tagging each row with change-detection deriviation:
+Extracting into a separate staging layer isolates cleaning/transformation logic from the live OLTP source, so repeated runs don't hammer production tables. CDC tagging (STG_ACTION, EXTRACTION_DT) solves the problem of telling new rows apart from changed rows without re-pulling the entire source table every run.
 
 - `STG_ACTION` — derived change code (with cdc to incrementally load data) : `1` = new/inserted row, `2` = updated row (code is derived in-flight for tracking; not persisted as a separate write operation)
 - `EXTRACTION_DT` — timestamp of the extraction run (can be used when loading to Target Dims)
@@ -172,7 +172,7 @@ result
 
  job `dim_*` (job per table)   
 
-DataStage jobs load 4 dimensions — **Date, Passenger, Aircraft, Flight** — as **Slowly Changing Dimension Type 1** (lookup + overwrite, no historical tracking). Surrogate keys generated via Oracle sequences and with key generator stage
+DataStage jobs load 4 dimensions — **Date, Passenger, Aircraft, Flight** — as **Slowly Changing Dimension Type 1** (lookup + overwrite, no historical tracking). Surrogate keys generated via Oracle sequences and with key generator stage so the fact table stays stable even if source system IDs change format or get reused.
 
 <p align="center">
   <img src="pics/dim_job.webp" alt="Image Description" width="900">
@@ -191,6 +191,8 @@ DataStage jobs load 4 dimensions — **Date, Passenger, Aircraft, Flight** — a
 job `fact_flight_reserve`
 
 `FLIGHT_RESERVATION_FACT` populated via a chain of Lookup stages (Passenger, Aircraft, Flight, Date) resolving surrogate keys, followed by a Transformer stage performing all business calculations (`FLIGHT_PROFIT`, `DELAY_MINUTES`, `IS_DELAYED_FLAG`), then loaded into the target table. `FACT_KEY` is auto-generated via an Oracle sequence at insert.
+
+fact rows only store surrogate keys — resolving those keys via Lookup stages before Transformer calculations ensures every fact row can be correctly traced back to a passenger, flight, aircraft, and date. All business calculations (profit, delay) are centralized in one Transformer stage.
 
 <p align="center">
   <img src="pics/fact_job.png" alt="Image Description" width="900">
