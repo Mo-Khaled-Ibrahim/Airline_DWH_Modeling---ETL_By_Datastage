@@ -2,6 +2,7 @@
 <p align="center">
   <img src="pics/Logo.png" alt="Image Description" width="900">
 </p>
+
 # Airline DWH Modeling + ETL By Datastage
 
 A dimensional data warehouse design and ETL implementation for an airline analytics case study, built using Oracle and IBM DataStage.
