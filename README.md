@@ -1,7 +1,7 @@
 
-`/pics/` → [Logo.png]
+[Logo.png]
 
-# Airline_DWH_Modeling + ETL_By_Datastage
+# Airline DWH Modeling + ETL By Datastage
 
 A dimensional data warehouse design and ETL implementation for an airline analytics case study, built using Oracle and IBM DataStage.
 
