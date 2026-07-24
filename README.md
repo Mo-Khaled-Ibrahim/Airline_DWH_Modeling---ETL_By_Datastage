@@ -108,7 +108,13 @@ DataStage jobs extract from both Oracle source tables and CSV files into staging
 - `STG_ACTION` — derived change code (with cdc to incrementally load data) : `1` = new/inserted row, `2` = updated row (code is derived in-flight for tracking; not persisted as a separate write operation)
 - `EXTRACTION_DT` — timestamp of the extraction run (can be used when loading to Target Dims)
 
-#### OLTP
+#### OLAP (schema)
+
+<p align="center">
+  <img src="pics/stg.webp" alt="Image Description" width="900">
+</p>
+
+#### OLTP (load)
 
 job
 <p align="center">
@@ -142,7 +148,7 @@ test update and insert new data
   <img src="pics/updatre_stg.png" alt="Image Description" width="900">
 </p>
 
-#### CSV
+#### CSV (load)
 
 job
 <p align="center">
@@ -151,7 +157,7 @@ job
 
 handle null and date
 <p align="center">
-  <img src="pics/handle_csv.png" alt="Image Description" width="900">
+  <img src="pics/handle_csv.png" alt="Image Description" width="500">
 </p>
 
 result
@@ -159,9 +165,6 @@ result
   <img src="pics/csv_stg_data.webp" alt="Image Description" width="900">
 </p>
 
-#### OLAP
-
-`/pics/` → **[stg.webp]**
 
 ### 6. Dimension Loading (Surrogate Key Generation)
 
