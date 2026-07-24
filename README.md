@@ -103,6 +103,8 @@ Two subject-specific data marts were designed on top of the star schema — Reve
 
 ### 5. Staging Layer — CDC Extraction (CSV + OLTP)
 
+job `STG_Airline_*` (job per table)
+
 DataStage jobs extract from both Oracle source tables and CSV files into staging, tagging each row with change-detection deriviation:
 
 - `STG_ACTION` — derived change code (with cdc to incrementally load data) : `1` = new/inserted row, `2` = updated row (code is derived in-flight for tracking; not persisted as a separate write operation)
@@ -157,7 +159,7 @@ job
 
 handle null and date
 <p align="center">
-  <img src="pics/handle_csv.png" alt="Image Description" width="500">
+  <img src="pics/handle_csv.png" alt="Image Description" width="300">
 </p>
 
 result
@@ -167,6 +169,8 @@ result
 
 
 ### 6. Dimension Loading (Surrogate Key Generation)
+
+ job `dim_*` (job per table)   
 
 DataStage jobs load 4 dimensions — **Date, Passenger, Aircraft, Flight** — as **Slowly Changing Dimension Type 1** (lookup + overwrite, no historical tracking). Surrogate keys generated via Oracle sequences and with key generator stage
 
