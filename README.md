@@ -1,5 +1,5 @@
 
-/pics/[Logo.png]
+/pics/Logo.png
 
 # Airline DWH Modeling + ETL By Datastage
 
