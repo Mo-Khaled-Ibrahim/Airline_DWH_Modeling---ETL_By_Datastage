@@ -138,6 +138,10 @@ test update and insert new data
   <img src="pics/stg_data_test.webp" alt="Image Description" width="900">
 </p>
 
+<p align="center">
+  <img src="pics/updatre_stg.png" alt="Image Description" width="900">
+</p>
+
 #### CSV
 
 <p align="center">
