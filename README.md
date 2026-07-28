@@ -66,6 +66,7 @@ Initial breakdown of business processes, source tables, and target design approa
   <img src="pics/plan.png" alt="Image Description" width="900">
 </p>
 
+---
 
 ### 2. Source Data Overview
 
@@ -80,6 +81,8 @@ CSV
 <p align="center">
   <img src="pics/CSV.webp" alt="Image Description" width="900">
 </p>
+
+---
 
 ### 3. Data Warehouse Model
 
@@ -100,6 +103,8 @@ Two subject-specific data marts were designed on top of the star schema — Reve
 <p align="center">
   <img src="pics/EDIT_main_modeling_w_marts.png" alt="Image Description" width="900">
 </p>
+
+---
 
 ### 5. Staging Layer — CDC Extraction (CSV + OLTP)
 
@@ -167,6 +172,7 @@ result
   <img src="pics/csv_stg_data.webp" alt="Image Description" width="900">
 </p>
 
+---
 
 ### 6. Dimension Loading (Surrogate Key Generation)
 
@@ -185,6 +191,8 @@ DataStage jobs load 4 dimensions — **Date, Passenger, Aircraft, Flight** — a
 <p align="center">
   <img src="pics/dim_data.webp" alt="Image Description" width="900">
 </p>
+
+---
 
 ### 7. Fact Table Load
 
